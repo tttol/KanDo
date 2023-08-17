@@ -9,7 +9,7 @@ export const Task = ({ task }: TaskDetail) => {
   });
 
   return (
-    <div ref={ref} className="p-2 border bg-white shadow rounded-md">
+    <div ref={ref} className="p-2 border shadow rounded-md">
         {task.detail}
     </div>
   );
