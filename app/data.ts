@@ -1,6 +1,6 @@
 export const ItemTypes = ['item' as const];
 export type ItemType = (typeof ItemTypes)[number];
-export const GroupTypes = ['mission', 'values', 'premise'] as const;
+export const GroupTypes = ['parking', 'todo', 'doing', 'done'] as const;
 export type GroupType = (typeof GroupTypes)[number];
 export type Contents = {
   title: string;
@@ -17,46 +17,47 @@ export type ItemWithIndex = Item & {
 };
 export type MoveHandler = (dragIndex: number, targetIndex: number, groupType: GroupType) => void;
 export const TitleMap = {
-  mission: 'Mission',
-  values: 'Values',
-  premise: 'Premise',
+  parking: 'PARKING LOT',
+  todo: 'TODO',
+  doing: 'DOING',
+  done: 'DONE',
 } as const;
 
 export const items: Item[] = [
   {
     id: 1,
     type: 'item',
-    group: 'mission',
+    group: 'parking',
     contents: {
-      title: '出会いからイノベーションを生み出す',
-      memo: 'mission',
+      title: '〇〇さんに打ち合わせ依頼する',
+      memo: 'あとでもいい',
     },
   },
  {
     id: 2,
     type: 'item',
-    group: 'values',
+    group: 'todo',
     contents: {
-      title: '仕事に向き合い、仕事を楽しむ',
-      memo: 'values',
+      title: '機能Aリファクタリング',
+      memo: '',
     },
   },
  {
     id: 3,
     type: 'item',
-    group: 'premise',
+    group: 'doing',
     contents: {
-      title: '強みを活かし、成果を出す',
-      memo: 'premise',
+      title: 'チケットXX着手',
+      memo: '・実装 ・テスト',
     },
   },
  {
     id: 4,
     type: 'item',
-    group: 'premise',
+    group: 'doing',
     contents: {
-      title: 'リモート歓迎',
-      memo: 'premise',
+      title: 'コードレビュー',
+      memo: '',
     },
   },
 ];

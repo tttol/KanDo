@@ -6,9 +6,8 @@ import React, { useState, useCallback } from 'react';
 import useGroupedItems from './hooks/useGroupedItems';
 import Group from './component/Group';
 import { items as initial, GroupTypes, MoveHandler } from './data';
-import './pages.css'
 
-export default function Home() {
+export default function Page() {
   const [groupedItems, items, setItems] = useGroupedItems(initial);
   const moveItem: MoveHandler = useCallback((dragIndex, targetIndex, group) => {
     const item = items[dragIndex];
@@ -19,12 +18,11 @@ export default function Home() {
       return newItems;
     })
   }, [items, setItems]);
-  const [isHorizontal, setIsHorizontal] = useState(true);
   let index = 0;
 
   return (
     <div className='app'>
-      <div className={isHorizontal ? 'horizontal' : ''}>
+      <div className='flex space-x-4'>
         <DndProvider backend={HTML5Backend}>
           {GroupTypes.map(group => {
             const items = groupedItems[group];
@@ -33,7 +31,7 @@ export default function Home() {
             index = index + items.length;
 
             return (
-              <section key={group} className={['group-section', isHorizontal ? 'horizontal' : ''].join(' ')}>
+              <section key={group}>
                 <Group
                   items={items}
                   groupType={group}

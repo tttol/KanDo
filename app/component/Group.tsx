@@ -1,6 +1,6 @@
 import { useDrop } from 'react-dnd';
 import Draggable from './Draggable';
-import { Item as _Item, ItemWithIndex, GroupType, ItemTypes, MoveHandler } from '../data';
+import { Item as _Item, ItemWithIndex, GroupType, ItemTypes, MoveHandler, TitleMap } from '../data';
 import Task from './Task';
 import './Group.css';
 
@@ -31,8 +31,8 @@ const Group: React.FC<{
   });
 
   return (
-    <div className={['group', groupType].join(' ')}>
-      <h2><span className='count'>{items.length }</span>{groupType}</h2>
+    <div className='bg-lime-100 p-3 text-black my-2 rounded'>
+      <h2 className='font-black text-xl'><span className='count'>{items.length }</span>{TitleMap[groupType]}</h2>
       <ul className='list' ref={ref}>
         {items.map((item, i) => {
           return (
