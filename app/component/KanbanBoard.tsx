@@ -1,5 +1,5 @@
 import React, { useReducer } from 'react';
-import { Column } from './Column';
+import Group from './Group';
 
 const initialState = {
     PARKING_LOT: [{ id: '1', title: 'Task 1' }],
@@ -36,10 +36,10 @@ export const KanbanBoard = () => {
 
   return (
     <main className="flex flex-row justify-between">
-        <Column title="PARKING LOT" tasks={[{id: 1, detail: "task1 detail"}, {id: 2, detail: "task2 detail"}]} onDropTask={onDropTask} />
-        <Column title="TODO" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} />
-        <Column title="DOING" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} />
-        <Column title="DONE" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} />
+        {/* <Group title="PARKING LOT" tasks={[{id: 1, detail: "task1 detail"}, {id: 2, detail: "task2 detail"}]} onDropTask={onDropTask} />
+        <Group title="TODO" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} />
+        <Group title="DOING" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} />
+        <Group title="DONE" tasks={[{id: 1, detail: "task1 detail"}]} onDropTask={onDropTask} /> */}
     </main>
   );
 };
