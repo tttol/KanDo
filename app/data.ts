@@ -1,21 +1,21 @@
-export const ItemTypes = ['item' as const];
-export type ItemType = (typeof ItemTypes)[number];
-export const GroupTypes = ['parking', 'todo', 'doing', 'done'] as const;
-export type GroupType = (typeof GroupTypes)[number];
+export const TaskTypes = ['item' as const];
+export type ItemType = (typeof TaskTypes)[number];
+export const GroupTypes = ['PARKING', 'TODO', 'DOING', 'DONE'] as const;
+// export type GroupType = (typeof GroupTypes)[number];
 export type Contents = {
   title: string;
   memo?: string;
 };
-export type Item = {
+export type Task = {
   id: number;
   type: ItemType;
-  group: GroupType;
+  group: string;
   contents: Contents;
 };
-export type ItemWithIndex = Item & {
+export type TaskWithIndex = Task & {
   index: number;
 };
-export type MoveHandler = (dragIndex: number, targetIndex: number, groupType: GroupType) => void;
+export type MoveHandler = (dragIndex: number, targetIndex: number, groupType: string) => void;
 export const TitleMap = {
   parking: 'PARKING LOT',
   todo: 'TODO',
@@ -23,11 +23,11 @@ export const TitleMap = {
   done: 'DONE',
 } as const;
 
-export const items: Item[] = [
+export const items: Task[] = [
   {
     id: 1,
     type: 'item',
-    group: 'parking',
+    group: 'PARKING',
     contents: {
       title: '〇〇さんに打ち合わせ依頼する',
       memo: 'あとでもいい',
@@ -36,7 +36,7 @@ export const items: Item[] = [
  {
     id: 2,
     type: 'item',
-    group: 'todo',
+    group: 'TODO',
     contents: {
       title: '機能Aリファクタリング',
       memo: '',
@@ -45,7 +45,7 @@ export const items: Item[] = [
  {
     id: 3,
     type: 'item',
-    group: 'doing',
+    group: 'DOING',
     contents: {
       title: 'チケットXX着手',
       memo: '・実装 ・テスト',
@@ -54,7 +54,7 @@ export const items: Item[] = [
  {
     id: 4,
     type: 'item',
-    group: 'doing',
+    group: 'DOING',
     contents: {
       title: 'コードレビュー',
       memo: '',

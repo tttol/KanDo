@@ -1,20 +1,20 @@
 import { useDrop } from 'react-dnd';
 import Draggable from './Draggable';
-import { Item as _Item, ItemWithIndex, GroupType, ItemTypes, MoveHandler, TitleMap } from '../data';
+import { Task as _Task, TaskWithIndex, TaskTypes, MoveHandler } from '../data';
 import Task from './Task';
 import './Group.css';
 
 const ItemType = 'TASK';
 
 const Group: React.FC<{
-  items: _Item[];
-  groupType: GroupType;
+  items: _Task[];
+  groupType: string;
   firstIndex: number;
   onMove: MoveHandler; 
 }> = ({ items, groupType, firstIndex, onMove }) => {
   const [, ref] = useDrop({
-    accept: ItemTypes,
-    hover(dragItem: ItemWithIndex) {
+    accept: TaskTypes,
+    hover(dragItem: TaskWithIndex) {
       const dragIndex = dragItem.index;
       if (dragItem.group === groupType) return;
       const targetIndex = dragIndex < firstIndex ?
@@ -32,7 +32,7 @@ const Group: React.FC<{
 
   return (
     <div className='bg-lime-100 p-3 text-black my-2 rounded'>
-      <h2 className='font-black text-xl'><span className='count'>{items.length }</span>{TitleMap[groupType]}</h2>
+      <h2 className='font-black text-xl'><span className='count'>{items.length }</span>{groupType}</h2>
       <ul className='list' ref={ref}>
         {items.map((item, i) => {
           return (

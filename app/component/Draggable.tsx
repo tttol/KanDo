@@ -1,17 +1,17 @@
 import { useDrag, useDrop } from 'react-dnd';
-import { Item, ItemWithIndex, ItemTypes, MoveHandler } from '../data';
+import { Task, TaskWithIndex, TaskTypes, MoveHandler } from '../data';
 import { useRef } from 'react';
 
 const Draggable: React.FC<{
-  item: Item, index: number, onMove: MoveHandler, children: any
+  item: Task, index: number, onMove: MoveHandler, children: any
 }> = ({
   item, index, onMove, children
 }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const [, drop] = useDrop({
-    accept: ItemTypes,
-    hover(dragItem: ItemWithIndex, monitor) {
+    accept: TaskTypes,
+    hover(dragItem: TaskWithIndex, monitor) {
       if (!ref.current) return;
       const dragIndex = dragItem.index;
       const hoverIndex = index;

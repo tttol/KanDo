@@ -1,13 +1,13 @@
 import { useState, useEffect, Dispatch, SetStateAction } from 'react';
-import { Item, GroupType, GroupTypes } from '../data';
+import { Task, GroupType, GroupTypes } from '../data';
 
 type GroupedItems = {
-  [k in GroupType]?: Item[]
+  [k in GroupType]?: Task[]
 };
-type UseGroupedItems = (items: Item[]) => [GroupedItems, Item[], Dispatch<SetStateAction<Item[]>>];
+type UseGroupedItems = (items: Task[]) => [GroupedItems, Task[], Dispatch<SetStateAction<Task[]>>];
 
 const useGroupedItems: UseGroupedItems = (items) => {
-  const [list, setList] = useState<Item[]>(items);
+  const [list, setList] = useState<Task[]>(items);
   const [groupedItems, setGroupedItems] = useState<GroupedItems>({});
   useEffect(() => {
     setGroupedItems(
