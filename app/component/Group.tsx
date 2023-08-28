@@ -31,7 +31,7 @@ const Group: React.FC<{
   });
 
   return (
-    <div className='bg-lime-100 p-3 text-black my-2 rounded'>
+    <div className='bg-lime-100 p-3 text-black my-2 rounded w-full'>
       <h2 className='font-black text-xl'><span className='count'>{items.length }</span>{groupType}</h2>
       <ul className='list' ref={ref}>
         {items.map((item, i) => {

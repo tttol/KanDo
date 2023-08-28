@@ -31,7 +31,7 @@ export default function Page() {
             index = index + items.length;
 
             return (
-              <section key={group}>
+              <section key={group} className='w-full'>
                 <Group
                   items={items}
                   groupType={group}
