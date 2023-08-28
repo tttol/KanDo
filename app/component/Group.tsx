@@ -6,6 +6,7 @@ import './Group.css';
 
 const ItemType = 'TASK';
 
+
 const Group: React.FC<{
   items: _Task[];
   groupType: string;
@@ -30,8 +31,10 @@ const Group: React.FC<{
     }
   });
 
+  const bgColor = groupType == "DONE" ? "bg-gray-300" : "bg-lime-100";
+
   return (
-    <div className='bg-lime-100 p-3 text-black my-2 rounded w-full'>
+    <div className={`${bgColor} p-3 text-black my-2 rounded w-full`}>
       <h2 className='font-black text-xl'><span className='count'>{items.length }</span>{groupType}</h2>
       <ul className='list' ref={ref}>
         {items.map((item, i) => {
