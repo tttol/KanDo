@@ -6,7 +6,7 @@ const tasks = [
   // ...
 ];
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+const executeUpdate = (req: NextApiRequest, res: NextApiResponse) => {
   const { id } = req.query;
   const task = tasks.find((t) => t.id === Number(id));
 
@@ -25,3 +25,5 @@ export default (req: NextApiRequest, res: NextApiResponse) => {
     res.status(405).json({ message: 'Method not allowed' });
   }
 };
+
+export default executeUpdate;

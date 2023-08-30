@@ -20,6 +20,21 @@ export default function Page() {
   }, [items, setItems]);
   let index = 0;
 
+  const getAllTasks = async () => {
+    try {
+      const response = await fetch(`/api/task/scan`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+
+      return response;
+    } catch (error) {
+      console.error('An error occurred:', error);
+    }
+  };
+
   return (
     <div className='app'>
       <div className='flex space-x-4'>
