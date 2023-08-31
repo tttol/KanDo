@@ -22,18 +22,22 @@ export default function Page() {
 
   const getAllTasks = async () => {
     try {
-      const response = await fetch(`/api/task/scan`, {
+      const response = await fetch(`/api/task/scan-ddb`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
-      return response;
+      const res = await response;
+      console.log(`scan result = ${res}`);
+      // const resJson = await response.json();
+      // console.log(`scan result(JSON stringfied) = ${JSON.stringify(resJson)}`);
+      // return resJson;
     } catch (error) {
       console.error('An error occurred:', error);
     }
   };
+  getAllTasks();
 
   return (
     <div className='app'>

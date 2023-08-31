@@ -8,8 +8,5 @@ export const scan = async () => {
   });
 
   const response = await client.send(command);
-  response.Items.forEach(function (pie) {
-    console.log(`${pie}\n`);
-  });
   return response;
 };
